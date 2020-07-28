@@ -1,0 +1,34 @@
+SELECT * FROM employees;
+SELECT * FROM job_history;
+
+select first_name from employees where LENGTH(first_name)>10;
+
+select * from employees where LENGTH(salary) = 4;
+
+select * from employees where MOD(salary,1000) = 0;
+
+select phone_number, SUBSTR(phone_number,1,3) from employees where phone_number like '___.___.____';
+
+select * from employees where first_name like '%m' AND LENGTH(first_name) >5;
+
+select NEXT_DAY(sysdate, 5) from dual;
+
+select * from job_history where MONTHS_BETWEEN(end_date, start_date)>150;
+
+SELECT REPLACE(phone_number, '.', '-') from employees;
+
+select RPAD(first_name, 15, ' ')||RPAD(email, 15, ' ')||job_id from employees;
+
+SELECT CONCAT(first_name, salary) from employees;
+
+select hire_date, ROUND(hire_date, 'MM'), TRUNC(hire_date, 'YYYY') from employees;
+
+select RPAD(first_name, 10 , '$'), LPAD(last_name, 15 , '!') from employees;
+
+select first_name, INSTR (first_name, 'a', 1, 2) from employees;
+
+select '!!!HELLO!! MY FRIEND!!!!!!!!', TRIM( '!' from '!!!HELLO!! MY FRIEND!!!!!!!!')from dual;
+
+select salary, salary*3.1415, ROUND (salary*3.1415), TRUNC (salary*3.1415, -3) from employees;
+
+select end_date, ADD_MONTHS(end_date, 6), LAST_DAY(end_date) from job_history;
